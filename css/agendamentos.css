@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+    display:flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 40px 0;
+}
+.navbar {
+    display: flex;
+    gap: 310px;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar a:hover {
+    color: #ff6600;
+    transform: translateY(-3px);
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    background-image: url('../img/Banner 2 Sr Tavares.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.conteudo-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.conteudo-banner .logo {
+    max-width: 400px;
+    height: auto;
+}
+.conteudo-banner .bigode {
+    max-width: 300px;
+    height: auto;
+
+}

@@ -24,7 +24,7 @@ body{
     font-size: 25px;
     font-weight: 500;
     transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .navbar a:hover {

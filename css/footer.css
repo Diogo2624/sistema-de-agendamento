@@ -1,0 +1,11 @@
+.container-footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+}
+.container-footer div {
+  max-width: 300px ;
+}

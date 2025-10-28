@@ -15,14 +15,14 @@
     <section class="menu">
         <nav class="navbar">
             
-            <a href="#Agendamentos">Agendamentos</a>
-            <a href="#Localizacao">Localização</a>
-            <a href="#Contato">Contato</a>
-        
+            <a href="#Agendamentos" data-section="agendamento">Agendamentos</a>
+            <a href="#Localizacao" data-section="localizacao">Localização</a>
+            <a href="#Contato" data-section="contatos">Contato</a>
+
         </nav>
     </section>
 
-    
+    <section id="agendamento" class="pagina ativa">
     <section class="container1">
         <div class="conteudo-banner">
             <img class="logo" src="../img/logo.png" alt="Logo da barbearia">
@@ -151,7 +151,7 @@
 
     
     
-    <section class="container-Agendamentos" id="Agendamentos">
+    <section class="profissionais" id="profissionais">
         <h2>Nossos Profissionais</h2>
         <div class="blocos-grid">
             <div class="blocos">
@@ -172,10 +172,11 @@
 
         </div>
     </section>
+    </section>
     
-    <section class="container3">
+    <section id="localizacao" class="pagina">
         
-        <img class="localizacao" src="../img/localizacao.png" alt="banner">
+        <img class="carrossel" src="../img/localizacao.png" alt="banner">
         
         <div class="top">
             <h2>Onde estamos localizados?</h2>
@@ -206,7 +207,7 @@
 
     </div>
     </section>
-    <section class="container4">
+    <section id="contatos" class="pagina">
         <div class="contato">
             <h1>Está precisando de ajuda? Entre em contato conosco!</h1>
             <a href="https://api.whatsapp.com/send/?phone=558399161772&text&type=phone_number&app_absent=0" class="bloco">
@@ -231,31 +232,31 @@
                 <br>
             <div>
                 <label for="comentario">Comentário:</label><br>
-                <textarea tarea id="comentario" name="comentario" rows="4" placeholder="Digite seu comentário" required></textarea>
+                <textarea id="comentario" name="comentario" rows="4" placeholder="Digite seu comentário" required></textarea>
             </div>
                 <br>
             <button type="submit">Enviar</button>
         </form>
-    </section>
+    
 
             </div>
         </div>
     </section>
     
-    <footer>
-        <div class="container-footer">
-            <div class="Atendimento">
-                <h3>Atendimento</h3>
-                <p>Horario de Funcionamento</p> 
-                <p>Seg. à Sex. das 09h às 18h</p>  
-                <p>Telefone</p>
-                <p>(83) 99916-1772</p>
+        <footer>
+            <div class="container-footer">
+                <div class="Atendimento">
+                    <h3>Atendimento</h3>
+                    <p>Horario de Funcionamento</p> 
+                    <p>Seg. à Sex. das 09h às 18h</p>  
+                    <p>Telefone</p>
+                    <p>(83) 99916-1772</p>
+                </div>
+            <div class="Formas-pagamento">
+                <h3>Formas de Pagamento</h3>
+                <p>Visa, Mastercard, American Express, Hipercard, Elo Crédito, Maestro/Redeshop, Visa Electron, Elo Débito, Doc/Ted, Transferência entre Conta Corrente, Dinheiro, Depósito, PIX.</p>
             </div>
-        <div class="Formas-pagamento">
-            <h3>Formas de Pagamento</h3>
-            <p>Visa, Mastercard, American Express, Hipercard, Elo Crédito, Maestro/Redeshop, Visa Electron, Elo Débito, Doc/Ted, Transferência entre Conta Corrente, Dinheiro, Depósito, PIX.</p>
-        </div>
-        </div>
-    </footer>
+            </div>
+        </footer>
 </body>
 </html>

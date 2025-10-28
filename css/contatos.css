@@ -1,0 +1,43 @@
+.contato {
+    background-color: antiquewhite;
+    color: white;
+    padding: 40x 20px;
+    font-family: 'Mostserat', sans-serif;
+}
+
+.contato h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.bloco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #3f6259;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 15px auto;
+    max-width: 400px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3 ease;
+}
+.bloco:hover {
+  background-color: #333;
+  transform: scale(1.03);
+}
+.bloco img {
+  width: 30px;
+  height: 30px;
+}
+
+.whatsapp { filter: drop-shadow(0 0 5px #25D366); }
+.instagram { filter: drop-shadow(0 0 5px #E1306C); }
+.facebook { filter: drop-shadow(0 0 5px #1877F2); }
+
+.bloco p {
+  font-size: 18px;
+}

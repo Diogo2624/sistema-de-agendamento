@@ -9,6 +9,24 @@ body{
     background-color: antiquewhite;
 }
 
+.pagina {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s 0.6s;
+    height: 0;
+    overflow: hidden;
+}
+
+.pagina.ativa {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    height: auto;
+    overflow: visible;
+}
+
 .menu {
     display:flex;
     justify-content: center;

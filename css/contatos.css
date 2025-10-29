@@ -40,4 +40,16 @@
 
 .bloco p {
   font-size: 18px;
+  font-weight: bold;
+}
+.contato div{
+  align-items: right;
+  display: flex;
+  color: #222;
+}
+.feedback{
+  color: #222;
+  display: flex;
+  justify-content: space-around;
+
 }

@@ -34,7 +34,7 @@
     <section class="container2">
         <h2>Nossos Serviços</h2>
     <div class="servicos-grid">
-
+        
         <div class="servico">
             <img src="../img/icone2.png" alt="ícone do acabamento">
             <h3>Acabamento</h3>
@@ -145,8 +145,8 @@
             <p class="preco">R$75,00</p>
             <button class="btn-agendar">Agendar</button>
         </div>
+    </div>
 
-        </div>
     </section>
 
     
@@ -253,7 +253,28 @@
             </div>
             </div>
         </footer>
+        
         <script src="../js/landing-page.js"></script>
         <script src="../js/animar-bigode.js"></script>
+        <script src="../js/modal.js"></script>
+    
+        <div id="modal-agendar" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Agendar Serviço</h2>
+            <form id="form-agendar">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="hora">Horário:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <button type="button" id="btn-escolher-profissional">Escolher Profissional</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

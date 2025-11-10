@@ -221,20 +221,101 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.btn-consultar {
-    background-color: #3f6259;
+.btn-agendar {
+    background-color: #9e9e9e;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 600;
+    cursor: not-allowed;
     font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    text-align: center;
 }
-.btn-consultar:hover {
-    background: #444; 
+.btn-agendar.ativo {
+    background-color: #31563b;
+    cursor: pointer;
 }
+.btn-agendar.ativo:hover{
+    background-color: #3b6e4a;
+    transform: scale(1.05);
+}
+
+#popup-servico {
+  position: fixed; 
+  inset: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+#popup-servico.mostrar {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-conteudo {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #f1c40f;
+  border-radius: 14px;
+  padding: 24px 28px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  color: #4a3d00;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: aparecer 0.3s ease;
+}
+
+#btn-entendi {
+  background-color: #31563b;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  margin-top: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-entendi:hover {
+  background-color: #3b6e4a;
+  transform: scale(1.05);
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .popup-conteudo {
+    padding: 18px;
+    font-size: 0.95rem;
+  }
+}
+
+
 
 .modal {
     position: fixed;
@@ -446,13 +527,13 @@ body{
 
 .botao-confirmar {
   display: block;
-  margin: 40px auto 0;
+  margin: 80px auto 0px;
   background-color: #2f4f4f;
   color: white;
   border: none;
   border-radius: 12px;
   padding: 12px 25px;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;

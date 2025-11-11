@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const btnConfirmar = document.getElementById("btn-confirmar-servicos");
     const modal = document.getElementById("modal-agendar");
+    const btnEntendi = document.getElementById("btn-entendi");
+    const popup = document.getElementById("popup-servico");
     if (!modal) {
         console.error("Erro: Elemento modal-agendar não encontrado no HTML.");
         return; 
@@ -13,9 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const selecionados = document.querySelectorAll(".servico-checkbox:checked");
 
         if (selecionados.length === 0) {
-            alert("Por favor, selecione pelo menos um serviço.");
+            popup.classList.add("mostrar");
             return; 
         }
+    });
+        if (btnEntendi) {
+            btnEntendi.addEventListener("click", () => {
+                popup.classList.remove("mostrar");
+        });
+    }
 
         let total = 0;
         const listaServicos = document.getElementById("lista-servicos");
@@ -59,4 +67,3 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "auto";
         }
     });
-});

@@ -216,7 +216,26 @@
     
     <section id="localizacao" class="pagina">
         
-        <img class="carrossel" src="../img/localizacao.png" alt="banner">
+        <div class="carrossel">
+            <div class="slides">
+                <img src="../img/localizacao.png" alt="foto da barbearia 1" class="slide ativo">
+                <img src="../img/ambiente1.png" alt="foto da barbearia 2" class="slide">
+                <img src="../img/ambiente2.png" alt="foto da barbearia 3" class="slide">
+                <img src="../img/ambiente3.png" alt="foto da barbearia 4" class="slide">
+                <img src="../img/frente.png" alt="foto da barbearia 5" class="slide">
+            </div>
+
+            <button class="seta esquerda" onclick="mudarSlide(-1)">&#10094;</button>
+            <button class="seta direita" onclick="mudarSlide(1)">&#10095;</button>
+
+            <div class="indicadores">
+                <span class="ponto ativo" onclick="mudarParaSlide(0)"></span>
+                <span class="ponto" onclick="mudarParaSlide(1)"></span>
+                <span class="ponto" onclick="mudarParaSlide(2)"></span>
+                <span class="ponto" onclick="mudarParaSlide(3)"></span>
+                <span class="ponto" onclick="mudarParaSlide(4)"></span>
+            </div>
+        </div>
         
         <div class="top">
             <h2>Onde estamos localizados?</h2>
@@ -296,6 +315,7 @@
         
         <script src="../js/landing-page.js"></script>
         <script src="../js/animar-bigode.js"></script>
+        <script src="../js/carrossel.js"></script>
         <script src="../js/bloquear_botao.js"></script>
         <script src="../js/modal.js"></script>
         <script src="../js/servicos.js"></script>

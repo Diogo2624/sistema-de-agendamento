@@ -20,9 +20,76 @@
 }
 
 .carrossel {
+    position: relative;
     width: 100%;
-    height: auto;
+    max-height: 700px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     margin-bottom: 30px;
+}
+.carrossel .slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carrossel .slide {
+    min-width: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.carrossel .slide.ativo {
+    display: block;
+}
+
+.carrossel .seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carrossel .seta:hover {
+    background-color: rgba(192, 57, 43, 0.8);
+}
+
+.carrossel .seta.esquerda {
+    left: 15px;
+}
+
+.carrossel .seta.direita {
+    right: 15px;
+}
+
+
+.carrossel .indicadores {
+    text-align: center;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+}
+
+.carrossel .ponto {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrossel .ponto.ativo,
+.carrossel .ponto:hover {
+    background-color: #c0392b;
 }
 
 .map {

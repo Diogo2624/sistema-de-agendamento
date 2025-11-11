@@ -3,54 +3,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("modal-agendar");
     const btnEntendi = document.getElementById("btn-entendi");
     const popup = document.getElementById("popup-servico");
+
     if (!modal) {
         console.error("Erro: Elemento modal-agendar não encontrado no HTML.");
-        return; 
+        return;
     }
-    
-    
-    const fechar = modal.querySelector(".fechar"); 
+
+    const fechar = modal.querySelector(".fechar");
 
     btnConfirmar.addEventListener("click", () => {
         const selecionados = document.querySelectorAll(".servico-checkbox:checked");
 
+        
         if (selecionados.length === 0) {
             popup.classList.add("mostrar");
-            return; 
+            return;
         }
-    });
-        if (btnEntendi) {
-            btnEntendi.addEventListener("click", () => {
-                popup.classList.remove("mostrar");
-        });
-    }
 
+        
         let total = 0;
         const listaServicos = document.getElementById("lista-servicos");
         const totalServicos = document.getElementById("total-servicos");
 
-        listaServicos.innerHTML = ""; 
+        listaServicos.innerHTML = "";
 
         selecionados.forEach(chk => {
-            
-            const label = chk.previousElementSibling; 
+            const label = chk.previousElementSibling;
             const nome = label.querySelector("h3").textContent;
-            
             const preco = parseFloat(chk.value);
 
             const li = document.createElement("li");
-            li.textContent = `• ${nome} (R$ ${preco.toFixed(2).replace('.', ',')})`; 
+            li.textContent = `• ${nome} (R$ ${preco.toFixed(2).replace('.', ',')})`;
             listaServicos.appendChild(li);
 
             total += preco;
-        }); 
+        });
 
         totalServicos.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2).replace('.', ',')}`;
 
-        
         modal.classList.add("ativo");
-        document.body.style.overflow = "hidden"; 
+        document.body.style.overflow = "hidden";
     });
+
+    
+    if (btnEntendi) {
+        btnEntendi.addEventListener("click", () => {
+            popup.classList.remove("mostrar");
+        });
+    }
 
     
     if (fechar) {
@@ -67,3 +67,4 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "auto";
         }
     });
+});

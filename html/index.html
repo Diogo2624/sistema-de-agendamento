@@ -189,17 +189,17 @@
             <div class="blocos">
                 <img src="../img/Renan.png" alt="Foto do profissional Renan">
                 <h3>Renan</h3>
-                <button class="btn-agendar">Agendar</button>
+                <button class="btn-agendar" data-profissional="Renan">Agendar</button>
             </div>
             <div class="blocos">
                 <img src="../img/Thayrone.png" alt="Foto do profissional Thayrone">
                 <h3>Thayrone</h3>
-                <button class="btn-agendar">Agendar</button>
+                <button class="btn-agendar" data-profissional="Thayrone">Agendar</button>
             </div>
             <div class="blocos">
                 <img src="../img/Anderson.png" alt="Foto do profissional Anderson">
                 <h3>Anderson</h3>
-                <button class="btn-agendar">Agendar</button>
+                <button class="btn-agendar" data-profissional="Anderson">Agendar</button>
             </div>
             
 
@@ -322,26 +322,68 @@
     
     <div id="modal-agendar" class="modal">
       <div class="modal-conteudo">
+        
         <button type="button" class="fechar">&times;</button>
-          <form id="form-agendar">
-          <label for="nome">Nome:</label>
+          
+        <form id="form-agendar" action="../php/salvar_agendamento.php" method="POST">
+          
+            <label for="nome">Nome:</label>
           <input type="text" id="nome" name="nome" required>
 
           <label for="data">Data:</label>
           <input type="date" id="data" name="data" required>
 
           <label for="hora">Horário:</label>
-          <input type="time" id="hora" name="hora" required>
+          <select id="hora" name="hora" required>
+            <option value="">Selecione um horário</option>
+            <option value="07:00">07:00</option>
+            <option value="07:20">07:20</option>
+            <option value="07:40">07:40</option>
+            <option value="08:00">08:00</option>
+            <option value="08:20">08:20</option>
+            <option value="08:40">08:40</option>
+            <option value="09:00">09:00</option>
+            <option value="09:20">09:20</option>
+            <option value="09:40">09:40</option>
+            <option value="10:00">10:00</option>
+            <option value="10:20">10:20</option>
+            <option value="10:40">10:40</option>
+            <option value="11:00">11:00</option>
+            <option value="11:20">11:20</option>
+            <option value="11:40">11:40</option>
+            <option value="13:00">13:00</option>
+            <option value="13:20">13:20</option>
+            <option value="13:40">13:40</option>
+            <option value="14:00">14:00</option>
+            <option value="14:20">14:20</option>
+            <option value="14:40">14:40</option>
+            <option value="15:00">15:00</option>
+            <option value="15:20">15:20</option>
+            <option value="15:40">15:40</option>
+            <option value="16:00">16:00</option>
+            <option value="16:20">16:20</option>
+            <option value="16:40">16:40</option>
+            <option value="17:00">17:00</option>
+            <option value="17:20">17:20</option>
+            <option value="17:40">17:40</option>
+</select>
 
     
           <div class="resumo-servicos">
           <h3>Serviços Selecionados:</h3>
+          
           <ul id="lista-servicos"></ul>
           <p id="total-servicos"><strong>Total:</strong> R$ 0,00</p>
-      </div>
+      
+        </div>
+    
+        <input type="hidden" id="servicos" name="servicos">
 
+        <input type="hidden" id="profissional" name="profissional">
+    
     <button type="button" id="btn-escolher-profissional">Escolher Profissional</button>
-  </form>
+  
+    </form>
 </div>
   
 </body>

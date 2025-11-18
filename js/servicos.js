@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const fechar = modal.querySelector(".fechar");
 
+    
     btnConfirmar.addEventListener("click", () => {
         const selecionados = document.querySelectorAll(".servico-checkbox:checked");
 
@@ -27,20 +28,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         listaServicos.innerHTML = "";
 
+        
+        let servicosArray = [];
+
         selecionados.forEach(chk => {
             const label = chk.previousElementSibling;
             const nome = label.querySelector("h3").textContent;
             const preco = parseFloat(chk.value);
 
+            
             const li = document.createElement("li");
             li.textContent = `• ${nome} (R$ ${preco.toFixed(2).replace('.', ',')})`;
             listaServicos.appendChild(li);
 
+            
             total += preco;
+
+            
+            servicosArray.push(nome);
         });
 
+        // Mostra o total formatado
         totalServicos.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2).replace('.', ',')}`;
 
+        
+        const inputServicos = document.getElementById("servicos");
+        inputServicos.value = servicosArray.join(", ");
+
+        
         modal.classList.add("ativo");
         document.body.style.overflow = "hidden";
     });

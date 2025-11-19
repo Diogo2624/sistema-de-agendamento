@@ -1,54 +1,82 @@
 <?php
+header("Content-Type: application/json; charset=utf-8");
 include 'config.php';
 
-//receber dados via POST
-$nome = $_POST['nome'];
-$data = $_POST['data'];
-$horario = $_POST['hora'];
-$profissional = $_POST['profissional'];
-$servicos = $_POST['servicos'];
+$conn->set_charset("utf8mb4");
 
-//Erro caso algum campo fique vazio
+
+$nome         = $_POST['nome']         ?? '';
+$data         = $_POST['data']         ?? '';
+$horario      = $_POST['hora']         ?? '';
+$profissional = $_POST['profissional'] ?? '';
+$servicos     = $_POST['servicos']     ?? '';
+
 if (empty($nome) || empty($data) || empty($horario) || empty($profissional)) {
-    die("Por favor, preencha todos os campos obrigatórios.");
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Por favor, preencha todos os campos obrigatórios."
+    ]);
+    exit;
 }
 
-//Pegar data e a hora ATUAL do sistema
+
 $dataAtual = date("Y-m-d");
 $horaAtual = date("H:i");
 
-// Verificar se o cliente está tentando agendar um horário que já passou
 if ($data < $dataAtual) {
-    die("Você não pode agendar em uma data que já passou.");
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Você não pode agendar em uma data passada."
+    ]);
+    exit;
 }
 
 if ($data === $dataAtual && $horario <= $horaAtual) {
-    die("Esse horário já passou. Escolha outro horário.");
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Esse horário já passou. Escolha outro horário."
+    ]);
+    exit;
 }
 
-// Verificar se o horario já está agendado para o Barbeiro
-$sql = "SELECT * FROM agendamentos
-        WHERE data_agendamento = '$data'
-        AND horario_agendamento = '$horario'
-        AND profissional = '$profissional'";
 
-$resultado  = $conn->query($sql);
+$stmt = $conn->prepare("
+    SELECT 1 FROM agendamentos
+    WHERE data = ? AND hora = ? AND profissional = ?
+");
+$stmt->bind_param("sss", $data, $horario, $profissional);
+$stmt->execute();
+$stmt->store_result();
 
-if ($resultado->num_rows > 0) {
-    die("Esse horário já está reservado com esse barbeiro, Escolha outro horário.");
+if ($stmt->num_rows > 0) {
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Esse horário já está reservado com esse profissional."
+    ]);
+    exit;
 }
+$stmt->close();
 
-// Inserir no banco de dados
-$sqlInserir = "INSERT INTO agendamentos
-(nome_cliente, data_agendamento, horario_agendamento, profissional, servicos)
-VALUES ('$nome', '$data', '$horario', '$profissional', '$servicos')";
 
-if ($conn->query($sqlInserir) === TRUE) {
-    echo "Agendamento realizado com sucesso!";
+$stmt = $conn->prepare("
+    INSERT INTO agendamentos (nome, data, hora, profissional, servicos)
+    VALUES (?, ?, ?, ?, ?)
+");
+$stmt->bind_param("sssss", $nome, $data, $horario, $profissional, $servicos);
+
+if ($stmt->execute()) {
+    echo json_encode([
+        "status" => "sucesso",
+        "mensagem" => "Seu agendamento foi realizado com sucesso!"
+    ]);
 } else {
-    echo "Erro ao criar agendamento: " . $conn->error;
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Erro ao salvar no banco de dados."
+    ]);
 }
 
+$stmt->close();
 $conn->close();
 
 ?>

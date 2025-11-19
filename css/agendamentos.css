@@ -244,6 +244,28 @@ body{
     transform: scale(1.05);
 }
 
+#popup-status {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup-status .popup-conteudo-status {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Montserrat;
+    max-width: 300px;
+}
+
 #popup-servico {
   position: fixed; 
   inset: 0; 
@@ -315,8 +337,6 @@ body{
   }
 }
 
-
-
 .modal {
     position: fixed;
     top: 0;
@@ -327,13 +347,25 @@ body{
     backdrop-filter: blur(3px);
     z-index: 9999;
 
-    display: none; 
+    display: flex;            
     justify-content: center;
     align-items: center;
 
-    opacity: 0;
+    opacity: 0;               
+    pointer-events: none;     
     transition: opacity 0.3s ease;
 }
+
+.modal.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.invisivel {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 .modal-conteudo {
     background: #fff;
@@ -349,6 +381,8 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+
 
 @keyframes aparecer {
     from {

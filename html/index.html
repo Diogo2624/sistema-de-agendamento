@@ -180,7 +180,7 @@
         </div>
     </div>
 
-    <button id="btn-confirmar-servicos" class="botao-confirmar">Confirmar Seleção</button>
+    <button type="button" id="btn-confirmar-servicos" class="botao-confirmar">Confirmar Seleção</button>
   </section>
     
     <section class="profissionais" id="profissionais">
@@ -189,24 +189,29 @@
             <div class="blocos">
                 <img src="../img/Renan.png" alt="Foto do profissional Renan">
                 <h3>Renan</h3>
-                <button class="btn-agendar" data-profissional="Renan">Agendar</button>
+                <button class="btn-agendar" data-profissional="Renan" form="form-agendar" type="button">Agendar</button>
             </div>
             <div class="blocos">
                 <img src="../img/Thayrone.png" alt="Foto do profissional Thayrone">
                 <h3>Thayrone</h3>
-                <button class="btn-agendar" data-profissional="Thayrone">Agendar</button>
+                <button class="btn-agendar" data-profissional="Thayrone" form="form-agendar" type="button">Agendar</button>
             </div>
             <div class="blocos">
                 <img src="../img/Anderson.png" alt="Foto do profissional Anderson">
                 <h3>Anderson</h3>
-                <button class="btn-agendar" data-profissional="Anderson">Agendar</button>
+                <button class="btn-agendar" data-profissional="Anderson" form="form-agendar" type="button">Agendar</button>
             </div>
             
 
         </div>
     </section>
     </section>
-    
+    <div id ="popup-status" class="popup">
+        <div class="popup-conteudo-status">
+            <p id="popup-mensagem"></p>
+            <button id="popup-ok">Ok</button>
+        </div>
+    </div>
     <div id="popup-servico" class="popup">
         <div class="popup-conteudo">
             <p> Por favor, selecione pelo menos um serviço para realizar o agendamento.</p>
@@ -315,6 +320,8 @@
         
         <script src="../js/landing-page.js"></script>
         <script src="../js/animar-bigode.js"></script>
+        <script src="../js/mensagem_conclusao.js"></script>
+        <script src="../js/eliminar_horario.js"></script>
         <script src="../js/carrossel.js"></script>
         <script src="../js/bloquear_botao.js"></script>
         <script src="../js/modal.js"></script>

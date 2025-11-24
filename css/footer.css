@@ -1,11 +1,54 @@
-.container-footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    background-color: #000;
+.footer{
+    
+    background: #0e0e0e;
     color: #fff;
-    padding: 40px 20px;
+    padding: 50px 20px 25px;
+    font-family: Arial, sans-serif;
 }
-.container-footer div {
-  max-width: 300px ;
+
+.container-footer {
+  max-width: 1100px ;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-Atendimento-Formas-Pagamentos {
+  flex: 1;
+  min-width: 260px;
+
+}
+
+.footer-Atendimento-Formas-Pagamentos h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2a2a2a;
+  display: inline;
+  padding-bottom: 5px;
+}
+
+.footer-Atendimento-Formas-Pagamentos p {
+  margin: 8px 0;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.footer-bottom p {
+  color: #aaa;
+  font-size: 14px;
+}
+@media (max-width: 700px) {
+  .container-footer {
+    flex-direction: column;
+    text-align: center;
+  }
 }

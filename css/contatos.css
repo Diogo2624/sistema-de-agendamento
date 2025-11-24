@@ -1,20 +1,21 @@
-.contato {
-    background-color: antiquewhite;
-    color: white;
-    padding: 40x 20px;
-    font-family: 'Mostserat', sans-serif;
+#contatos {
+    background: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+
 }
 
-.contato h1{
+#contato h1 {
     font-size: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: #222;
+    font-weight: 700;
 }
 
-.bloco{
+.contato .bloco {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
     background-color: #3f6259;
     border-radius: 12px;
@@ -23,11 +24,13 @@
     max-width: 400px;
     text-decoration: none;
     color: white;
-    transition: 0.3 ease;
+    box-shadow: 0 3px 10px rgba(0.0, 0.0, 0.0, 0.1);
+    transition: transform .2s ease, box-shadow .2s ease;
 }
-.bloco:hover {
+.contato .bloco:hover {
   background-color: #333;
-  transform: scale(1.03);
+  transform: scale(-4px);
+  box-shadow: 0 5px 18px rgba(0.0, 0.0, 0.0, 0.18);
 }
 .bloco img {
   width: 30px;
@@ -42,14 +45,62 @@
   font-size: 18px;
   font-weight: bold;
 }
-.contato div{
-  align-items: right;
+.feedback {
+  margin-bottom: 50px;
   display: flex;
-  color: #222;
+  justify-content: center;
 }
-.feedback{
-  color: #222;
-  display: flex;
-  justify-content: space-around;
 
+#feedback form {
+  background-color: white;
+  width: 100%;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 12px rgba(0.0, 0.0, 0.0, 0.1);
+  margin: 0 auto;
+}
+#feedback label {
+  display: block;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#feedback h2 {
+  font: size 24px; ;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+#feedback input,
+#feedback textarea:focus{
+  border-color: 007bff;
+}
+
+#feedback button {
+  padding: 12px 25px;
+  background: #3f6259;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background .2s ease;
+
+}
+
+#feedback button:hover{
+  background: #333;
+}
+
+@media (max-width: 600px){
+  #contatos h1 {
+    font-size: 22px;
+  }
+
+  .contato .bloco{
+    width: 95%;
+    padding: 12px 15px;
+  }
 }

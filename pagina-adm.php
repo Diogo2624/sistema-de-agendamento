@@ -10,6 +10,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página-Administrador</title>
+    <link rel="stylesheet" href="../Jeofton/css/administrador.css">
 </head>
 <body>
     <h1>Agendamentos Registrados</h1>

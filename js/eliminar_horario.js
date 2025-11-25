@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let m = min.toString().padStart(2, '0');
                 let horarioStr = `${h}:${m}`;
 
+                
                 if (dataSelecionada === hojeStr) {
                     let agoraH = dataHoje.getHours();
                     let agoraM = dataHoje.getMinutes();
@@ -32,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 if (ocupados.includes(horarioStr)) continue;
 
-                
+                // Criar opção corretamente
                 let op = document.createElement("option");
-                op.value = horario;
-                op.textContent = horario;
+                op.value = horarioStr;
+                op.textContent = horarioStr;
                 selectHora.appendChild(op);
             }
         }
@@ -47,11 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let profissional = inputProf.value;
 
         if (data && profissional) {
-
             fetch(`../php/get_horarios_ocupados.php?data=${data}&profissional=${profissional}`)
-            .then(res => res.json())
-            .then(ocupados => gerarHorarios(data, ocupados));
+                .then(res => res.json())
+                .then(ocupados => gerarHorarios(data, ocupados));
         }
     });
-
 });

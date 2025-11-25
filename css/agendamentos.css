@@ -395,6 +395,40 @@ body{
     }
 }
 
+#hora {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #fff;
+
+    border: 2px solid #ccc;
+    border-radius: 8px;
+
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#hora:hover {
+    border-color: #2f513b;
+}
+
+#hora:focus {
+    border-color: #2f513b;
+    box-shadow: 0 0 6px rgba(47, 81, 59, 0.4);
+    outline: none;
+}
+
 .fechar {
     float: right;
     font-size: 1.5rem;

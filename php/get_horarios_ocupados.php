@@ -1,19 +1,59 @@
 <?php
-include 'config.php';
+header("Content-Type: application/json");
+require_once "config.php";
 
-$data = $_GET['data'];
-$profissional = $_GET['profissional'];
 
-$sql = "SELECT horario_agendamento FROM agendamentos
-        WHERE data_agendamento = '$data'
-        AND profissional = '$profissional'";
+$nome = $_POST['nome'] ?? '';
+$data = $_POST['data'] ?? '';
+$horario = $_POST['hora'] ?? '';
+$profissional = $_POST['profissional'] ?? '';
+$servicos = $_POST['servicos'] ?? '';
 
-$resultado = $conn->query($sql);
 
-$ocupados = [];
-
-while ($row = $resultado->fetch_assoc()) {
-    $ocupados[] = $row['horario_agendamento'];
+if (empty($nome) || empty($data) || empty($horario) || empty($profissional)) {
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Preencha todos os campos antes de continuar."
+    ]);
+    exit;
 }
 
-echo json_encode($ocupados);
+
+$check = $conn->prepare("
+    SELECT id 
+    FROM agendamentos 
+    WHERE data = ? AND horario = ? AND profissional = ?
+");
+$check->bind_param("sss", $data, $hora, $profissional);
+$check->execute();
+$resultado = $check->get_result();
+
+
+if ($resultado->num_rows > 0) {
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Este horário já está reservado para outro cliente. 
+                        Marque um horário posterior ou escolha outro profissional."
+    ]);
+    exit;
+}
+
+
+$stmt = $conn->prepare("
+    INSERT INTO agendamentos (nome, data, horario, profissional, servicos)
+    VALUES (?, ?, ?, ?, ?)
+");
+
+$stmt->bind_param("sssss", $nome, $data, $hora, $profissional, $servicos);
+
+if ($stmt->execute()) {
+    echo json_encode([
+        "status" => "ok",
+        "mensagem" => "Agendamento realizado com sucesso!"
+    ]);
+} else {
+    echo json_encode([
+        "status" => "erro",
+        "mensagem" => "Erro ao salvar o agendamento. Tente novamente."
+    ]);
+}
